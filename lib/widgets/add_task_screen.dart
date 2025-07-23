@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoapp/model/task.dart';
+import 'package:todoapp/model/task_data.dart';
 
 class AddTaskScreen extends StatefulWidget {
-  final Function(String) addTaskCallback;
-
-  const AddTaskScreen({super.key, required this.addTaskCallback});
-
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
 }
@@ -45,7 +44,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             width: 200,
             child: TextButton(
               onPressed: () {
-                widget.addTaskCallback(newTaskTitle);
+                Provider.of<TaskData>(
+                  context,
+                  listen: false,
+                ).addTask(newTaskTitle);
                 Navigator.pop(context);
               },
               style: TextButton.styleFrom(
