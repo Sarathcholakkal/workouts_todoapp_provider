@@ -74,7 +74,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     ),
                   ),
                   Text(
-                    '${Provider.of<TaskData>(context).tasks.length}',
+                    '${Provider.of<TaskData>(context).taskCount}',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ],
